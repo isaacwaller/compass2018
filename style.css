@@ -6,6 +6,14 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'Renogare Soft';
+    src: url('RenogareSoft-Regular.woff2') format('woff2'),
+        url('RenogareSoft-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -66,10 +74,10 @@ header {
 
 .header-left {
     margin-right: auto;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Renogare Soft', sans-serif;
     font-size: 18pt;
     text-transform: uppercase;
-    font-weight: 900;
+    font-weight: 700;
 }
 
 header .nav {
@@ -271,16 +279,73 @@ a:hover .play-icon {
 }
 
 
-
 .hero-tagline {
     text-align: center;
-    padding: 0px 30px 0px 30px;
+    padding: 30px 30px 30px 30px;
     margin-bottom: auto;
     font-size: 17pt;
 }
 
 .hero-tagline h1 {
     font-size: 55pt;
+}
+/* tiles - med desktop */
+@media (max-width: 1200px) {
+    .hero {
+        height: auto;
+        max-height: none;
+    }
+    .hero-tiles {
+        height: auto;
+        max-height: none;
+    }
+    .tile-video {
+        position: relative;
+        height: 340px;
+        width: 50%;
+    }
+    .small-tiles {
+        height: auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    .tile-candidates, .tile-platform {
+        position: relative;
+        width: 25%;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 200px;
+    }
+}
+/* tiles - small */
+@media (max-width: 800px) {
+    .tile-video {
+        width: 75%;
+    }
+    .tile-candidates, .tile-platform {
+        width: 37.5%;
+    }
+    .hero-tagline h1 {
+        font-size: 35pt;
+    }
+}
+/* tiles - phone */
+@media (max-width: 600px) {
+    .tile-video {
+        width: 100%;
+    }
+    .tile-candidates, .tile-platform {
+        width: 50%;
+    }
+    .header-right {
+        display: none;
+    }
+    .hero-tagline h1 {
+        font-size: 25pt;
+    }
 }
 
 .underline {
@@ -293,7 +358,7 @@ a:hover .play-icon {
     content: '';
     width: 100%;
     height: 10px;
-    bottom: 13px;
+    bottom: 13%;
     left: 3px;
     z-index: -1;
     opacity: 1;
@@ -305,7 +370,7 @@ a:hover .play-icon {
     content: '';
     width: 100%;
     height: 10px;
-    bottom: 10px;
+    bottom: 10%;
     left: 6px;
     z-index: -2;
     opacity: 0.5;
@@ -338,7 +403,6 @@ a:hover .play-icon {
     padding-top: 30px;
 
     position: relative;
-    z-index: -4;
 }
 
 .candidates-executives > div {
@@ -356,7 +420,9 @@ a:hover .play-icon {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 5px;
+    padding: 20px 10px;
+
+    cursor: pointer;
 }
 
 .exec .photo {
@@ -364,7 +430,6 @@ a:hover .play-icon {
     width: 150px;
     border-radius: 75px;
     background-color: #eeeeee;
-    margin-top: 15px;
     margin-bottom: 20px;
 } 
 
@@ -376,6 +441,8 @@ a:hover .play-icon {
     font-size: 30pt;
     position: relative;
     display: inline-block;
+
+    z-index: 6;
 }
 
 .section-header h3::before {
