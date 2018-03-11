@@ -1,0 +1,20 @@
+executives:
+  - name: Anne Boucher
+    position: President
+  - name: Tyler Biswurm
+    position: Vice-President, Operations
+  - name: Yuli Liu
+    position: Vice-President, EX?
+  - name: Ammara Wasim
+    position: Vice-President, Equity
+  - name: Joshua Grondin
+    position: Vice-President, University Affairs
+  - name: Yolanda Alfaro
+    position: Vice-President, Student Life
+  - name: Yasmine El Sanyoura
+    position: Vice-President, Professional Faculties
+
+
+directors:
+  - name: Director
+    position: Woodsworth College
