@@ -425,6 +425,10 @@ a:hover .play-icon {
     cursor: pointer;
 }
 
+.exec:hover {
+    background-color: #fefefe;
+}
+
 .exec .photo {
     height: 150px;
     width: 150px;
@@ -492,4 +496,46 @@ footer {
     text-transform: uppercase;
     color: #555555;
     letter-spacing: .05em;
+}
+
+.social {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+
+    z-index: 10;
+
+    box-shadow: 5px 5px #80808080;
+}
+
+.social a {
+    width: 55px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: white;
+    font-size: 25px;
+}
+
+.social a.twitter {
+    background-color: #00aced;
+}
+
+.social a.facebook {
+    background-color: #3b5998;
+}
+
+.social a.snapchat {
+    background-color: #333333;
+}
+
+.social a.instagram {
+    background-color: #cd486b;
 }
