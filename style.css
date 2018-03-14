@@ -14,6 +14,15 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'Avenir';
+    src: url('Avenir-Medium.woff2') format('woff2'),
+        url('Avenir-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
+
+
 * {
     margin: 0;
     padding: 0;
@@ -25,12 +34,15 @@ p {
 
 body {
     background-color: white;
-    font-family: 'Futura PT';
+    font-family: 'Avenir';
     font-weight: 500;
     font-style: normal;
     font-size: 14pt;
 
     position: relative;
+
+    background: url(/hero-bg.png) no-repeat center center fixed;
+    background-size: cover;
 }
 
 .container {
@@ -96,10 +108,6 @@ header .nav a {
     display: flex;
     flex-direction: column;
 
-    background-image: url(/hero-bg.png);
-    background-size: cover;
-    background-position: center;
-
     padding-top: 120px;
     box-sizing: border-box;
 
@@ -115,6 +123,11 @@ header .nav a {
 .tile {
     display: block;
     z-index: 3;
+    transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.tile:hover {
+    transform: translateY(7px);
 }
 
 .tile-video {
@@ -124,10 +137,8 @@ header .nav a {
 .tile-video video {
     position: absolute;
     top: 0;
-    left: 50%;
     height: 100%;
     width: auto;
-    transform: translateX(-50%);
 }
 
 .video-container {
@@ -237,7 +248,7 @@ a:hover .play-icon {
 
 /* tiles - large desktop */
 .hero-tiles {
-    height: 30vw;
+    height: 35vw;
     max-height: 500px;
 
     width: 100%;
@@ -247,6 +258,7 @@ a:hover .play-icon {
 .hero {
     height: 100vh;
     max-height: 1000px;
+    min-height: 700px;
 }
 .small-tiles {
     width: 100%;
@@ -256,8 +268,7 @@ a:hover .play-icon {
     position: absolute;
     top: 0;
     bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
+    left: 27.5%;
     width: 45%;
     z-index: 3;
 }
@@ -294,6 +305,7 @@ a:hover .play-icon {
     .hero {
         height: auto;
         max-height: none;
+        min-height: none;
     }
     .hero-tiles {
         height: auto;
@@ -378,7 +390,8 @@ a:hover .play-icon {
 }
 
 .section {
-    margin-bottom: 30px;
+    padding-bottom: 30px;
+    background-color: white;
 }
 
 .candidates-tabs {
@@ -503,14 +516,13 @@ footer {
     top: 50%;
     right: 0;
     transform: translateY(-50%);
-    overflow: hidden;
 
     display: flex;
     flex-direction: column;
+    align-items: flex-end;
 
     z-index: 10;
 
-    box-shadow: 5px 5px #80808080;
 }
 
 .social a {
@@ -522,6 +534,13 @@ footer {
     text-decoration: none;
     color: white;
     font-size: 25px;
+
+    transition: padding 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 5px 5px #80808080;
+}
+
+.social a:hover {
+    padding-right: 20px;
 }
 
 .social a.twitter {
@@ -533,7 +552,7 @@ footer {
 }
 
 .social a.snapchat {
-    background-color: #333333;
+    background-color: #CCCC00;
 }
 
 .social a.instagram {
