@@ -33,7 +33,7 @@ p {
 }
 
 body {
-    background-color: #88dcff;
+    background-color: white;
     font-family: 'Avenir';
     font-weight: 500;
     font-style: normal;
@@ -41,8 +41,6 @@ body {
     color: white;
 
     position: relative;
-    /*background: url(/hero-bg.png) no-repeat center bottom fixed;
-    background-size: cover;*/
 }
 
 .container {
@@ -108,26 +106,69 @@ header .nav a {
     display: flex;
     flex-direction: column;
 
-    padding-top: 120px;
     box-sizing: border-box;
 
     position: relative;
     z-index: 1;
+
+    height: 100vh;
+    max-height: 1000px;
+
+    background-color: red;
+
+    background: linear-gradient(to right, #0e76bc, #0e76bc 50%, white 50%, white);
+}
+
+.hero-container {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1300px;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.hero-bg {
+    position: absolute;
+    left: 0;
+    right: 50%;
+    top: 0;
+    bottom: 0;
+    
+    background: url(/hero-2.png);
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+}
+
+.hero-tagline {
+    height: 100%;
+    box-sizing: border-box;
+    width: 50%;
+
+    text-align: left;
+
+    padding: 120px 60px 120px 0px;
+    margin-bottom: auto;
+    font-size: 17pt;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    position: relative;
+    z-index: 2;
 }
 
 .hero-tiles {
-    margin: auto 0;
     position: relative;
+    flex: 1;
 }
 
 .tile {
     display: block;
     z-index: 3;
     transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.tile:hover {
-    transform: translateY(7px);
 }
 
 .tile-video {
@@ -199,6 +240,47 @@ a:hover .tile-text i {
     background-size: cover;
 }
 
+/* tile positions, large desktop */
+.tile-video {
+    position: absolute;
+    left: -30px;
+    top: 50%;
+    transform: translateY(-50%) translateY(-65px);
+    width: 100%;
+    height: 400px;
+    z-index: 9;
+}
+
+.tile-video:hover {
+    transform: translateY(-50%) translateY(-65px) translateY(7px);
+}
+
+.tile-candidates, .tile-platform {
+    position: absolute;
+    width: 240px;
+    height: 170px;
+}
+
+.tile-platform {
+    left: 0;
+    top: 50%;
+    transform: translateX(-50%) translateY(135px);
+}
+
+.tile-platform:hover {
+    transform: translateX(-50%) translateY(135px) translateY(7px);
+}
+
+.tile-candidates {
+    top: 50%;
+    right: 60px;
+    transform: translateY(135px);
+}
+
+.tile-candidates:hover {
+    transform: translateY(135px) translateY(7px);
+}
+
 .video-button {
     text-align: center;
 }
@@ -246,118 +328,9 @@ a:hover .play-icon {
     margin-right: -5px;
 }
 
-/* tiles - large desktop */
-.hero-tiles {
-    height: 35vw;
-    max-height: 500px;
-
-    width: 100%;
-    max-width: 1500px;
-    align-self: center;
-}
-.hero {
-    height: 100vh;
-    max-height: 1000px;
-    min-height: 700px;
-}
-.small-tiles {
-    width: 100%;
-    height: 100%;
-}
-.tile-video {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 27.5%;
-    width: 45%;
-    z-index: 3;
-}
-.tile-candidates, .tile-platform {
-    position: absolute;
-    height: 40%;
-    width: 15%;
-    color: white;
-}
-.tile-candidates {
-    top: 5%;
-    left: 12.5%;
-    z-index: 2;
-}
-.tile-platform {
-    top: 35%;
-    left: 72.5%;
-    z-index: 5;
-}
-
-
-.hero-tagline {
-    text-align: center;
-    padding: 30px 30px 30px 30px;
-    margin-bottom: auto;
-    font-size: 17pt;
-}
 
 .hero-tagline h1 {
-    font-size: 55pt;
-}
-/* tiles - med desktop */
-@media (max-width: 1200px) {
-    .hero {
-        height: auto;
-        max-height: none;
-        min-height: none;
-    }
-    .hero-tiles {
-        height: auto;
-        max-height: none;
-    }
-    .tile-video {
-        position: relative;
-        height: 340px;
-        width: 50%;
-    }
-    .small-tiles {
-        height: auto;
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-    }
-    .tile-candidates, .tile-platform {
-        position: relative;
-        width: 25%;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        height: 200px;
-    }
-}
-/* tiles - small */
-@media (max-width: 800px) {
-    .tile-video {
-        width: 75%;
-    }
-    .tile-candidates, .tile-platform {
-        width: 37.5%;
-    }
-    .hero-tagline h1 {
-        font-size: 35pt;
-    }
-}
-/* tiles - phone */
-@media (max-width: 600px) {
-    .tile-video {
-        width: 100%;
-    }
-    .tile-candidates, .tile-platform {
-        width: 50%;
-    }
-    .header-right {
-        display: none;
-    }
-    .hero-tagline h1 {
-        font-size: 25pt;
-    }
+    font-size: 50pt;
 }
 
 .underline {
@@ -560,7 +533,7 @@ footer {
 }
 
 .social a.snapchat {
-    background-color: #CCCC00;
+    background-color: #EEEE00;
 }
 
 .social a.instagram {
@@ -570,4 +543,47 @@ footer {
 .platform {
     background-color: #840814;
     color: white;
+}
+
+.platform-points {
+    display: flex;
+    flex-direction: row;
+}
+
+.platform-points .point {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    padding: 30px;
+}
+
+.platform-points .point .icon {
+    width: 70px;
+    height: 70px;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.platform-points .point .icon i {
+    font-size: 25pt;
+}
+
+.platform-btn {
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 3px;
+    padding: 10px 15px;
+    color: white;
+}
+
+.platform-btn i {
+    position: relative;
+    top: -1px;
+    margin-left: 10px;
+    font-size: 11pt;
 }
