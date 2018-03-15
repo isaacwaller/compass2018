@@ -33,16 +33,16 @@ p {
 }
 
 body {
-    background-color: white;
+    background-color: #88dcff;
     font-family: 'Avenir';
     font-weight: 500;
     font-style: normal;
     font-size: 14pt;
+    color: white;
 
     position: relative;
-
-    background: url(/hero-bg.png) no-repeat center center fixed;
-    background-size: cover;
+    /*background: url(/hero-bg.png) no-repeat center bottom fixed;
+    background-size: cover;*/
 }
 
 .container {
@@ -68,7 +68,7 @@ h1,h2,h3,h4 {
     font-weight: 700;
 }
 .artsy-shadow {
-    box-shadow: 5px 5px #80808080;
+    box-shadow: 5px 5px rgba(0, 0, 0, 0.3);
 }
 
 header {
@@ -390,7 +390,7 @@ a:hover .play-icon {
 }
 
 .section {
-    padding-bottom: 30px;
+    padding: 30px 0px;
     background-color: white;
 }
 
@@ -474,6 +474,10 @@ a:hover .play-icon {
     background-color: #ef7f89;
 }
 
+.section-header.alt h3::before {
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
 .section-header h3::after {
     position: absolute;
     content: '';
@@ -484,6 +488,10 @@ a:hover .play-icon {
     z-index: -2;
     opacity: 0.5;
     background-color: grey;
+}
+
+.section-header.alt h3::after {
+    background-color: rgba(255, 255, 255, 0.6);
 }
 
 
@@ -557,4 +565,9 @@ footer {
 
 .social a.instagram {
     background-color: #cd486b;
+}
+
+.platform {
+    background-color: #840814;
+    color: white;
 }
