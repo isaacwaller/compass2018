@@ -689,7 +689,7 @@ footer {
 }
 
 .details > div {
-    margin: -30px 30px 30px 30px;
+    margin: -30px 30px 0px 30px;
     padding: 10px 30px 30px 30px;
     background-color: white;
     position: relative;
@@ -720,8 +720,92 @@ footer {
 
 .details {
     display: none;
+
+    overflow: hidden;
+    transition: all 1s ease-out;
 }
 
 .details-open {
     display: block;
 }
+
+.candidates-directors {
+    padding-right: 30px;
+}
+
+.candidates-directors .details-row {
+    margin-right: -30px;
+}
+
+.candidates-directors > a {
+    display: block;
+    width: 50%;
+    float: left;
+
+    text-decoration: none;
+    color: black;
+}
+
+.director {
+    margin-bottom: 30px;
+    margin-left: 30px;
+    background-color: white;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    position: relative;
+    min-height: 100px;
+
+    padding-left: 110px;
+    padding-right: 10px;
+}
+
+.director .photo {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100px;
+    height: 100px;
+    background-color: #eeeeee;
+}
+
+.director .position {
+    font-size: 12pt;
+}
+
+
+@media (max-width: 700px) {
+    .candidates-directors > a {
+        width: auto;
+        float: none;
+        margin: 0px -30px;
+    }
+
+    .director {
+        margin-bottom: 5px;
+    }
+}
+
+/* Responsive details */
+@media (max-width: 700px) {
+    .details-open {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        overflow: scroll;
+
+        z-index: 10;
+    }
+
+    .details-open > div {
+        margin-top: 30px;
+        margin-right: 0;
+        padding-top: 30px;
+    }
+}
+

@@ -70,16 +70,16 @@ layout: default
         <div class="candidates-executives">
             <div class="execs">
                 {% for exec in site.data.executives %}
-                    <a href="#candidate-{{ exec.id }}">
-                        <div class="exec artsy-shadow">
+                    <a href="#{{ exec.id }}">
+                        <div class="exec candidate artsy-shadow">
                             <div class="photo"></div>
                             <div class="name">{{ exec.name }}</div>
                             <div class="position">{{ exec.position }}</div>
                         </div>
                     </a>
-                    {% if forloop.index == 3 %}
+                    {% if forloop.index == 4 %}
                         </div><div class="details-row">
-                            {% for i in (0..2) %}
+                            {% for i in (0..3) %}
                                 {% assign exec2 = site.data.executives[i] %}
                                 {% include details.html candidate=exec2 %}
                             {% endfor %}
@@ -88,7 +88,7 @@ layout: default
                 {% endfor %}
             </div>
             <div class="details-row">
-                {% for i in (3..6) %}
+                {% for i in (4..6) %}
                     {% assign exec2 = site.data.executives[i] %}
                     {% include details.html candidate=exec2 %}
                 {% endfor %}
@@ -96,11 +96,25 @@ layout: default
         </div>
         <div class="candidates-directors" style="display: none;">
             {% for director in site.data.directors %}
-                <div class="director artsy-shadow">
-                    <div class="photo"></div>
-                    <div class="name">{{ director.name }}</div>
-                    <div class="position">{{ director.position }}</div>
-                </div>
+                <a href="#{{ director.id }}">
+                    <div class="director artsy-shadow">
+                        <div class="photo"></div>
+                        <div class="name">{{ director.name }}</div>
+                        <div class="position">{{ director.position }}</div>
+                    </div>
+                </a>
+                {% assign mod = forloop.index | modulo: 2 %}
+                {% assign index = forloop.index | minus: 2 %}
+                {% if mod == 0 %}
+                    <div style="clear: both;"></div>
+                    <div class="details-row">
+                        {% for i in (0..1) %}
+                            {% assign i2 = i | plus: index %}
+                            {% assign candidate2 = site.data.directors[i2] %}
+                            {% include details.html candidate=candidate2 %}
+                        {% endfor %}
+                    </div>
+                {% endif %}
             {% endfor %}
         </div>
     </div>

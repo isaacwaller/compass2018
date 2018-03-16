@@ -11,12 +11,18 @@ def clean_column(name):
     return '_'.join(re.split('[ /]+', re.sub('[^a-z0-9 /]+', '', name)))
     
 
+def generate_id(name):
+    if not isinstance(name, str):
+        return "" 
+    name = re.sub(' ?\(.*\)', '', name.lower())
+    return '-'.join(re.split('[ /]+', re.sub('[^a-z0-9 /]+', '', name)))
+
 url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTlVnojITGF4aA2ylj4-cjJYmXpTa6IcfOn8rygfAwRCN3aNrOjlthUtWGr6HGMPnHY1BDpnHJG1RFa/pub?output=csv"
 data = pd.read_csv(url)
 data.columns = list(map(clean_column, data.iloc[1]))
 data = data.reindex(data.index.drop(1))
 
-data['id'] = data["position"].map(clean_column)
+data['id'] = data["name"].map(generate_id)
 
 executives = []
 directors = []
