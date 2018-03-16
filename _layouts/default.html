@@ -12,15 +12,15 @@
         <link href="https://fonts.googleapis.com/css?family=Montserrat:700,900" rel="stylesheet"> 
         <link rel="stylesheet" href="/fontawesome-all.min.css" />
         <link rel="stylesheet" href="/style.css" />
-        <title>Compass (TODO)</title>
+        <title>Compass | A new direction for the UTSU</title>
     </head>
     <body>
         <!-- Social media -->
         <div class="social">
-            <a href="https://twitter.com/" aria-label="Twitter" class="twitter"><i class="fab fa-twitter"></i></a>
-            <a href="https://twitter.com/" aria-label="Facebook" class="facebook"><i class="fab fa-facebook"></i></a>
-            <a href="https://twitter.com/" aria-label="Instagram" class="instagram"><i class="fab fa-instagram"></i></a>
-            <a href="https://twitter.com/" aria-label="Snapchat" class="snapchat"><i class="fab fa-snapchat-ghost"></i></a>
+            <a target="_blank" href="https://twitter.com/uoftcompass" aria-label="Twitter" class="twitter"><i class="fab fa-twitter"></i></a>
+            <a target="_blank" href="https://facebook.com/uoftcompass" aria-label="Facebook" class="facebook"><i class="fab fa-facebook"></i></a>
+            <a target="_blank" href="https://instagram.com/uoftcompass" aria-label="Instagram" class="instagram"><i class="fab fa-instagram"></i></a>
+            <a target="_blank" href="https://www.snapchat.com/add/uoftcompass" aria-label="Snapchat" class="snapchat"><i class="fab fa-snapchat-ghost"></i></a>
         </div>
 
         <!-- Header -->
@@ -28,12 +28,13 @@
             <div class="header-left">
                 <img src="/logo-inverse.png" style="height: 50px;" />
             </div>
-            <!--<div class="header-right">
-                <ul class="nav">
-                    <li><a href="#candidates">Candidates</a></li>
-                    <li><a href="#platform">Platform</a></li>
-                </ul>
-            </div>-->
+            <div class="header-right">
+                <div>Voting <span id="countdown-name"></span> in <span id="days"></span> days </div><div class="countdown">
+                    <div><div class='number' id="hours">0</div><div class='label'>hours</div></div>
+                    <div><div class='number' id="minutes">0</div><div class='label'>minutes</div></div>
+                    <div><div class='number' id="seconds">0</div><div class='label'>seconds</div></div>
+                </div>
+            </div>
         </header>
 
         <div class="content">
@@ -43,10 +44,10 @@
         <!-- Footer -->
         <footer>
             <div class="container">
-                img credit https://www.flickr.com/photos/wvs/15026737268
                 <img src="/logo.png" style="height: 40px; filter:grayscale(1);" />
                 <p>Please direct media inquiries to <a href="mailto:uoftcompass2018@gmail.com">uoftcompass2018@gmail.com</a></p>
             </div>
         </footer>
+        <script type="text/javascript" src="/countdown.js"></script>
     </body>
 </html>

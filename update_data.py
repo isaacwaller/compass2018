@@ -5,6 +5,8 @@ import re
 import os
 
 def clean_column(name):
+    if not isinstance(name, str):
+        return "" 
     name = re.sub(' ?\(.*\)', '', name.lower())
     return '_'.join(re.split('[ /]+', re.sub('[^a-z0-9 /]+', '', name)))
     
@@ -13,6 +15,8 @@ url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTlVnojITGF4aA2ylj4-cjJYm
 data = pd.read_csv(url)
 data.columns = list(map(clean_column, data.iloc[1]))
 data = data.reindex(data.index.drop(1))
+
+data['id'] = data["position"].map(clean_column)
 
 executives = []
 directors = []
