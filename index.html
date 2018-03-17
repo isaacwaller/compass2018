@@ -72,7 +72,7 @@ layout: default
                 {% for exec in site.data.executives %}
                     <a href="#{{ exec.id }}">
                         <div class="exec candidate artsy-shadow">
-                            <div class="photo"></div>
+                            <div class="photo" style="background-image:url(/images/{{ exec.id }}.jpg);"></div>
                             <div class="name">{{ exec.name }}</div>
                             <div class="position">{{ exec.position }}</div>
                         </div>

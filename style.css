@@ -517,7 +517,14 @@ a:hover .play-icon {
     border-radius: 75px;
     background-color: #eeeeee;
     margin-bottom: 20px;
+
+    background-size: cover;
+    background-position: center;
 } 
+
+.exec .position {
+    font-size: 12pt;
+}
 
 .exec:last-child {
     margin: 0px 30px 0px 30px;
@@ -685,15 +692,21 @@ footer {
 }
 
 .details {
-    padding-bottom: 30px;
+    margin-top: -30px;
 }
 
 .details > div {
-    margin: -30px 30px 0px 30px;
-    padding: 10px 30px 30px 30px;
+    padding: 0px 30px 30px 30px;
+}
+
+.details-inner > div {
     background-color: white;
     position: relative;
     z-index: 9;
+}
+
+.details-inner > div > div {
+    padding: 10px 30px 30px 30px;
 }
 
 .countdown {
@@ -720,8 +733,11 @@ footer {
 
 .details {
     display: none;
+}
 
+.details .artsy-shadow {
     overflow: hidden;
+    box-sizing: border-box;
     transition: all 1s ease-out;
 }
 

@@ -1,7 +1,11 @@
 <div class="details" id="details-{{ include.candidate.id }}">
-    <div class="artsy-shadow">
-        <h2>{{ include.candidate.name }}</h2>
-        <h3>{{ include.candidate.position }}</h3>
-        <p class='bio'>{{ include.candidate.candidate_statement }}</p>
+    <div class="details-inner">
+        <div class="artsy-shadow">
+            <div>
+                <h2>{{ include.candidate.name }}</h2>
+                <h3>{{ include.candidate.position }}</h3>
+                <p class='bio'>{{ include.candidate.candidate_statement }}</p>
+            </div>
+        </div>
     </div>
 </div>

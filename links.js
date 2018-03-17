@@ -6,20 +6,22 @@ function closeDetails() {
         return;
     }
     
-    var previousHeight = details.clientHeight;
 
+    var animTarget = details.querySelector('.artsy-shadow');
+
+    var previousHeight = animTarget.clientHeight;
     details.style.display = 'block'; // keep it visible during animation
-    details.style.height = '0px';
-    details.style.minHeight = previousHeight + 'px';
+    animTarget.style.height = '0px';
+    animTarget.style.minHeight = previousHeight + 'px';
     // do animation after above takes effect
     requestAnimationFrame(function() {
-        details.style.minHeight = '0px';
-        details.addEventListener('transitionend', function(e) {
+        animTarget.style.minHeight = '0px';
+        animTarget.addEventListener('transitionend', function(e) {
             // remove this event listener so it only gets triggered once
-            details.removeEventListener('transitionend', arguments.callee);
+            animTarget.removeEventListener('transitionend', arguments.callee);
             details.style.display = ''; // can hide now
-            details.style.height = '';
-            details.style.minHeight = '';
+            animTarget.style.height = '';
+            animTarget.style.minHeight = '';
         });
     });
 
@@ -66,7 +68,7 @@ function openTab(isDirectors, link) {
 }
 
 function handleHash(link, hash) {
-    history.pushState(null,null,'#' + hash);
+    history.replaceState(null,null,'#' + hash);
 
     if (hash == "video") {
         alert("this will show the video once it is done");  
