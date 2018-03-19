@@ -58,6 +58,7 @@ body {
 @media (max-width: 900px) {
     .container {
         width: auto;
+        padding: 0px 15px;
     }
 }
 
@@ -368,6 +369,25 @@ a:hover .tile-text i {
     .tile:hover {
         transform: none;
     }
+
+    body > div.social {
+        display: none;
+    }
+
+    .social.mobile-social {
+        display: block;
+    }
+}
+
+
+
+@media only screen and (max-width: 600px) {
+    .tile-video {
+        height: 280px;
+    }
+    .tile-text {
+        font-size: 11pt;
+    }
 }
 
 
@@ -552,8 +572,28 @@ a:hover .play-icon {
     font-size: 12pt;
 }
 
-.exec:last-child {
-    margin: 0px 30px 0px 30px;
+.execs a:last-child {
+    margin-right: 30px;
+}
+
+
+@media only screen and (max-width: 800px) {
+    .candidates-tabs {
+        float: none;
+        margin-bottom: 7px;
+    }
+
+    .candidates-executives > .execs {
+        flex-direction: column;
+    }
+
+    .exec {
+        margin-left: 0px;
+    }
+
+    .execs a:last-child {
+        margin-right: 0px;
+    }
 }
 
 .section-header h3 {
@@ -629,6 +669,14 @@ footer {
     letter-spacing: .05em;
 }
 
+
+@media (max-width: 900px) {
+    footer {
+        padding-left: 0;
+        padding-right: 0;
+    }
+} 
+
 .social {
     position: fixed;
     top: 50%;
@@ -641,6 +689,14 @@ footer {
 
     z-index: 10;
 
+}
+
+.social.mobile-social {
+    display: none;
+    position: relative;
+    top: 0;
+    transform: none;
+    flex-direction: row;
 }
 
 .social a {
@@ -657,8 +713,16 @@ footer {
     box-shadow: 5px 5px rgba(0, 0, 0, 0.3);
 }
 
+.social.mobile-social a {
+    flex: 1;
+}
+
 .social a:hover {
     padding-right: 20px;
+}
+
+.social.mobile-social a:hover {
+    padding-right: 0;
 }
 
 .social a.twitter {
@@ -685,6 +749,12 @@ footer {
 .platform-points {
     display: flex;
     flex-direction: row;
+}
+
+@media only screen and (max-width: 800px) {
+    .platform-points {
+        flex-direction: column;
+    }
 }
 
 .platform-points .point {
@@ -723,6 +793,10 @@ footer {
     top: -1px;
     margin-left: 10px;
     font-size: 11pt;
+}
+
+.no-platform {
+    color: rgba(255, 255, 255, 0.6);
 }
 
 .details {
@@ -813,6 +887,24 @@ footer {
 
     padding-left: 110px;
     padding-right: 10px;
+}
+
+@media only screen and (max-width: 800px) {
+    .candidates-directors {
+        padding-right: 0;
+    }
+
+    .directors-row {
+        flex-direction: column;
+    }
+
+    .directors-row > a {
+        width: 100%;
+    }
+
+    .director {
+        margin-left: 0;
+    }
 }
 
 .director .photo {

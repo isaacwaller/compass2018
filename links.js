@@ -1,3 +1,23 @@
+function doAnim(animTarget, change, restore) {
+    requestAnimationFrame(function () {
+        change(animTarget);
+        var timeout;
+
+        var transitionListener = function (timeout) {
+            clearTimeout(timeout);
+            animTarget.removeEventListener('transitionend', transitionListener);
+            restore(animTarget);
+        };
+
+        timeout = setTimeout(function () {
+            animTarget.removeEventListener('transitionend', transitionListener);
+            restore(animTarget);
+        }, 1000);
+        
+        animTarget.addEventListener('transitionend', transitionListener);
+    });
+}
+
 function closeDetails(shouldAnimate) {
     var details = document.querySelector(".details-open");
     var container = document.querySelector('.candidates-listing');
@@ -13,16 +33,13 @@ function closeDetails(shouldAnimate) {
         details.style.display = 'block'; // keep it visible during animation
         animTarget.style.height = '0px';
         animTarget.style.minHeight = previousHeight + 'px';
-        // do animation after above takes effect
-        requestAnimationFrame(function() {
+
+        doAnim(animTarget, function () {
             animTarget.style.minHeight = '0px';
-            animTarget.addEventListener('transitionend', function(e) {
-                // remove this event listener so it only gets triggered once
-                animTarget.removeEventListener('transitionend', arguments.callee);
-                details.style.display = ''; // can hide now
-                animTarget.style.height = '';
-                animTarget.style.minHeight = '';
-            });
+        }, function () {
+            details.style.display = ''; // can hide now
+            animTarget.style.height = '';
+            animTarget.style.minHeight = '';
         });
     }
 
@@ -60,14 +77,10 @@ function openDetails(candidate) {
     
         var targetHeight = 500;
         animTarget.style.maxHeight = '0px';
-        // do animation after above takes effect
-        requestAnimationFrame(function() {
+        doAnim(animTarget, function () {
             animTarget.style.maxHeight = targetHeight + 'px';
-            animTarget.addEventListener('transitionend', function(e) {
-                // remove this event listener so it only gets triggered once
-                animTarget.removeEventListener('transitionend', arguments.callee);
-                animTarget.style.maxHeight = '';
-            });
+        }, function () {
+            animTarget.style.maxHeight = '';
         });
     }
 }
