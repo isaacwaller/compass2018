@@ -1,3 +1,8 @@
+window.onerror = function(msg, url, linenumber) {
+    alert('Error message: '+msg+'\nURL: '+url+'\nLine Number: '+linenumber);
+    return true;
+}
+
 function doAnim(animTarget, change, restore) {
     requestAnimationFrame(function () {
         change(animTarget);
@@ -25,6 +30,8 @@ function closeDetails(shouldAnimate) {
     if (!details) {
         return;
     }
+
+    shouldAnimate = shouldAnimate && window.innerWidth > 700;
     
     if (shouldAnimate) {
         var animTarget = details.querySelector('.artsy-shadow');
@@ -60,6 +67,9 @@ function openDetails(candidate) {
 
     var alreadyOpen = document.querySelector(".details-open");
     var shouldAnimate = true;
+
+    shouldAnimate = shouldAnimate && window.innerWidth > 700;
+
     if (alreadyOpen) {
         shouldAnimate = details.parentElement != alreadyOpen.parentElement;
         closeDetails(shouldAnimate);
@@ -106,7 +116,12 @@ function openTab(isDirectors) {
     document.querySelector(".candidates-tabs a.open").classList.remove('open');
 
     var name = isDirectors ? 'directors' : 'executives';
-    document.querySelector(".candidates-tabs a[href='#" + name + "'").classList.add("open");
+
+    document.querySelectorAll(".candidates-tabs a").forEach(function (link) {
+        if (link.getAttribute('href') == ("#" + name)) {
+            link.classList.add("open");
+        }
+    });
 
     closeDetails(false);
 }

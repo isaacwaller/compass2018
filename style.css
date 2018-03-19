@@ -340,7 +340,7 @@ a:hover .tile-text i {
         width: auto;
         text-align: center;
         padding-right: 30px;
-        padding-bottom: 30px;
+        padding-bottom: 60px;
     }
 
     .tile {
@@ -589,6 +589,11 @@ a:hover .play-icon {
 
     .exec {
         margin-left: 0px;
+        margin-bottom: 30px;
+    }
+
+    a:last-child .exec {
+        margin-bottom: 0px;
     }
 
     .execs a:last-child {
@@ -905,6 +910,8 @@ footer {
     .director {
         margin-left: 0;
     }
+
+
 }
 
 .director .photo {
@@ -940,14 +947,34 @@ footer {
     display: none;
 }
 
+
+
+
+@keyframes detailsbganim {
+    from {background-color: rgba(0, 0, 0, 0);}
+    to {background-color: rgba(0, 0, 0, 0.5);}
+}
+
+@keyframes detailsslide {
+    from {transform: translateX(100%);}
+    to {transform: translateX(0%);}
+}
+
 /* Mobile details */
 @media (max-width: 700px) {
+    .candidate, .director {
+        transform: none !important;
+    }
+
     body.has-open-details {
         overflow: hidden;
     }
 
     .details-id {
         display: block;
+        padding-top: 20px;
+        padding-right: 20px;
+        padding-bottom: 10px;
     }
 
     .details-open {
@@ -956,8 +983,14 @@ footer {
         left: 0;
         right: 0;
         bottom: 0;
-        background-color: rgba(0, 0, 0, 0.5);
+        background-color: rgba(0, 0, 0, 0);
         overflow: scroll;
+        -webkit-overflow-scrolling: touch;
+
+        animation-name: detailsbganim;
+        animation-timing-function: ease-out;
+        animation-duration: 0.5s;
+        animation-fill-mode: forwards;
 
         z-index: 10;
     }
@@ -966,6 +999,12 @@ footer {
         margin-top: 30px;
         padding-right: 0;
         padding-top: 30px;
+
+        transform: translateX(100%);
+        animation-name: detailsslide;
+        animation-timing-function: ease-in;
+        animation-duration: 0.25s;
+        animation-fill-mode: forwards;
     }
 }
 
