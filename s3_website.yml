@@ -6,6 +6,12 @@ s3_secret: O/VisR/COoV5h1Ty7u1/oV8XEm6V5AUN/+GcaaUE
 s3_bucket: compass2018.isaac.waller.fm
 cloudfront_distribution_id: E3K05OCTC13WYC
 
+cloudfront_distribution_config:
+  aliases:
+    quantity: 1
+    items:
+      - www.uoftcompass.ca
+
 # set session_token if using temporary credentials with a session token (eg: when assuming a role)
 # session_token: YOUR_AWS_S3_SESSION_TOKEN
 
