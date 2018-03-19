@@ -487,6 +487,9 @@ a:hover .play-icon {
 .candidates-tabs {
     float: right;
     margin-top: 9px;
+    position: relative;
+    z-index: 8;
+    background-color: white;
 }
 
 .candidates-tabs a {
