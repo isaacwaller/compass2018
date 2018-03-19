@@ -5,13 +5,14 @@ layout: default
     <div class="hero-bg"></div>
     <div class="hero-container">
         <div class="hero-tagline">
-            <h1>A&nbsp;<span>new&nbsp;direction</span> for&nbsp;the&nbsp;UTSU</h1>
+            <h1>A&nbsp;<span class='underline'>new&nbsp;direction</span> for&nbsp;the&nbsp;UTSU</h1>
             <p>On March 26<sup>th</sup>, 27<sup>th</sup>, and 28<sup>th</sup>, vote Compass for an approachable, human students' union.</p>
         </div>
         <div class="hero-tiles">
             <a class="tile tile-video artsy-shadow" href="#video">
-                <div class="video-container"><video src="/video.mp4" autoplay muted loop></video></div>
-                <div class="video-button"><div class="play-icon"><i class="fas fa-play"></i></div>Watch the video</div>
+                <div class="video-container"><video src="/placeholder-video-1.mp4" autoplay muted loop></video></div>
+                <!--<div class="video-button"><div class="play-icon"><i class="fas fa-play"></i></div>Watch the video</div>-->
+                <div class="video-coming-soon">(video coming soon!)</div>
             </a>
             <div class="small-tiles">
                 <a class="tile tile-candidates artsy-shadow" href="#candidates"><div class="tile-text">Our team<i class="fas fa-chevron-right"></i></div></a>
@@ -26,6 +27,8 @@ layout: default
     <div class="container">
         <div class="section-header alt">
             <h3>Our plan</h3>
+        </div>
+        <div>
             <p>We're navigating towards:</p>
             <div class='platform-points'>
                 <div class='point'>
@@ -95,27 +98,30 @@ layout: default
             </div>
         </div>
         <div class="candidates-directors" style="display: none;">
-            {% for director in site.data.directors %}
-                <a href="#{{ director.id }}">
-                    <div class="director artsy-shadow">
-                        <div class="photo"></div>
-                        <div class="name">{{ director.name }}</div>
-                        <div class="position">{{ director.position }}</div>
-                    </div>
-                </a>
-                {% assign mod = forloop.index | modulo: 2 %}
-                {% assign index = forloop.index | minus: 2 %}
-                {% if mod == 0 %}
-                    <div style="clear: both;"></div>
-                    <div class="details-row">
-                        {% for i in (0..1) %}
-                            {% assign i2 = i | plus: index %}
-                            {% assign candidate2 = site.data.directors[i2] %}
-                            {% include details.html candidate=candidate2 %}
-                        {% endfor %}
-                    </div>
-                {% endif %}
-            {% endfor %}
+            <div class="directors-row">
+                {% for director in site.data.directors %}
+                    <a href="#{{ director.id }}">
+                        <div class="director candidate artsy-shadow">
+                            <div class="photo" style="background-image:url(/images/directors/{{ director.id }}.jpg);"></div>
+                            <div class="name">{{ director.name }}</div>
+                            <div class="position">{{ director.position }}</div>
+                        </div>
+                    </a>
+                    {% assign mod = forloop.index | modulo: 2 %}
+                    {% assign index = forloop.index | minus: 2 %}
+                    {% if mod == 0 %}
+                        </div>
+                        <div class="details-row details-row-directors">
+                            {% for i in (0..1) %}
+                                {% assign i2 = i | plus: index %}
+                                {% assign candidate2 = site.data.directors[i2] %}
+                                {% include details.html candidate=candidate2 %}
+                            {% endfor %}
+                        </div>
+                        <div class="directors-row">
+                    {% endif %}
+                {% endfor %}
+            </div>
         </div>
     </div>
 </div>
@@ -125,9 +131,13 @@ layout: default
         <div class="section-header">
             <h3>Get involved</h3>
         </div>
-        Commit to vote - like us on facebook etc.
-        Sign up for a reminder to vote.
-        Want to get involved? We're looking for volunteers
+        <p>Connect with us on
+                <a target="_blank" href="https://twitter.com/uoftcompass" aria-label="Twitter" class="twitter">Twitter</a>, 
+                <a target="_blank" href="https://facebook.com/uoftcompass" aria-label="Facebook" class="facebook">Facebook</a>, 
+                <a target="_blank" href="https://instagram.com/uoftcompass" aria-label="Instagram" class="instagram">Instagram</a>, or
+                <a target="_blank" href="https://www.snapchat.com/add/uoftcompass" aria-label="Snapchat" class="snapchat">Snapchat</a>!
+        </p>
+        <p>We're looking for volunteers! Send us an email at <a href="mailto:uoftcompass2018@gmail.com">uoftcompass2018@gmail.com</a>.</p>
     </div>
 </div>
 

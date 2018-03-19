@@ -2,9 +2,31 @@
     <div class="details-inner">
         <div class="artsy-shadow">
             <div>
-                <h2>{{ include.candidate.name }}</h2>
-                <h3>{{ include.candidate.position }}</h3>
+                <!--<h2>{{ include.candidate.name }} <span>{{include.candidate.position}}</span></h2>-->
+                <h4>About me</h4>
+                <div class="funfacts">
+                    {% include funfact.html name="Birthplace" content=include.candidate.birthplace %}
+                    {% include funfact.html name="Hometown" content=include.candidate.hometown %}
+                    {% include funfact.html name="Program" content=include.candidate.program %}
+                    {% include funfact.html name="College / Faculty" content=include.candidate.college_faculty %}
+                    {% include funfact.html name="Nickname" content=include.candidate.nickname %}
+                    {% include funfact.html name="Favourite TV Show" content=include.candidate.favourite_tv_show %}
+                    {% include funfact.html name="Favourite Hobby" content=include.candidate.favourite_hobby %}
+                    {% include funfact.html name="Biggest Hero" content=include.candidate.biggest_hero %}
+                </div>
                 <p class='bio'>{{ include.candidate.candidate_statement }}</p>
+                <div>
+                    <h4>My plan</h4>
+                    <div class="candidate-platform">
+                        <div>{{ include.candidate.platform_point_for_poster_1 }}</div>
+                        {% if include.candidate.platform_point_for_poster_2 != "nan" %}
+                            <div>{{ include.candidate.platform_point_for_poster_2 }}</div>
+                        {% endif %}
+                        {% if include.candidate.platform_point_for_poster_3 != "nan" %}
+                            <div>{{ include.candidate.platform_point_for_poster_3 }}</div>
+                        {% endif %}
+                    </div>
+                </div>
             </div>
         </div>
     </div>

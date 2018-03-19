@@ -62,8 +62,8 @@ body {
 }
 
 h1,h2,h3,h4 {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
+    font-family: 'Renogare Soft', sans-serif;
+    font-weight: normal;
 }
 .artsy-shadow {
     box-shadow: 5px 5px rgba(0, 0, 0, 0.3);
@@ -203,6 +203,16 @@ header .nav a {
     color: white;
     font-size: 13pt;
     z-index: 4;
+}
+
+.video-coming-soon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+
 }
 
 .tile-text {
@@ -413,12 +423,24 @@ a:hover .play-icon {
     position: relative;
 }
 
+@keyframes underlineanim {
+    from {width: 0%;}
+    to {width: 100%;}
+}
+
 .underline::before {
     position: absolute;
     content: '';
     width: 100%;
+
+    animation-name: underlineanim;
+    animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+    animation-duration: 1.5s;
+    animation-delay: 1s;
+    animation-fill-mode: backwards;
+
     height: 10px;
-    bottom: 13%;
+    bottom: 19%;
     left: 3px;
     z-index: -1;
     opacity: 1;
@@ -430,7 +452,7 @@ a:hover .play-icon {
     content: '';
     width: 100%;
     height: 10px;
-    bottom: 10%;
+    bottom: 16%;
     left: 6px;
     z-index: -2;
     opacity: 0.5;
@@ -444,7 +466,7 @@ a:hover .play-icon {
 
 .candidates-tabs {
     float: right;
-    margin-top: 6px;
+    margin-top: 9px;
 }
 
 .candidates-tabs a {
@@ -483,6 +505,7 @@ a:hover .play-icon {
     display: flex;
     flex-direction: row;
     padding-bottom: 30px;
+    width: 100%;
 }
 
 .execs > a {
@@ -495,7 +518,6 @@ a:hover .play-icon {
 
 .exec {
     margin: 0px 0px 0px 30px;
-    background-color: white;
     width: 100%;
 
     display: flex;
@@ -505,6 +527,10 @@ a:hover .play-icon {
     padding: 20px 10px;
 
     cursor: pointer;
+
+    background: url(/compass-badge.png) no-repeat, white;
+    background-position: center 0px;
+    background-size: 190px 190px;
 }
 
 .exec:hover {
@@ -541,13 +567,21 @@ a:hover .play-icon {
 .section-header h3::before {
     position: absolute;
     content: '';
-    width: 100%;
+    width: 0%;
     height: 10px;
-    bottom: 6px;
+    bottom: 8px;
     left: 3px;
     z-index: -1;
     opacity: 1;
     background-color: #ef7f89;
+}
+
+.section-header.been-visible h3::before {
+    animation-name: underlineanim;
+    animation-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+    animation-duration: 1.5s;
+    animation-delay: 0.3s;
+    animation-fill-mode: forwards;
 }
 
 .section-header.alt h3::before {
@@ -559,7 +593,7 @@ a:hover .play-icon {
     content: '';
     width: 100%;
     height: 10px;
-    bottom: 2px;
+    bottom: 4px;
     left: 6px;
     z-index: -2;
     opacity: 0.5;
@@ -692,7 +726,7 @@ footer {
 }
 
 .details {
-    margin-top: -30px;
+    margin-top: -20px;
 }
 
 .details > div {
@@ -737,8 +771,7 @@ footer {
 
 .details .artsy-shadow {
     overflow: hidden;
-    box-sizing: border-box;
-    transition: all 1s ease-out;
+    transition: all 0.3s ease-out;
 }
 
 .details-open {
@@ -753,10 +786,14 @@ footer {
     margin-right: -30px;
 }
 
-.candidates-directors > a {
+.directors-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.directors-row > a {
     display: block;
     width: 50%;
-    float: left;
 
     text-decoration: none;
     color: black;
@@ -785,6 +822,9 @@ footer {
     width: 100px;
     height: 100px;
     background-color: #eeeeee;
+
+    background-position: center;
+    background-size: cover;
 }
 
 .director .position {
@@ -825,3 +865,72 @@ footer {
     }
 }
 
+.candidate {
+    transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.candidate:hover, a.open .candidate {
+    transform: translateY(10px);
+}
+
+.election-over {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.details h3 span {
+    /* nothing */
+}
+
+.funfacts {
+    padding-top: 10px;
+}
+
+.funfacts::after {
+    content: '';
+    clear: both;
+    display: block;
+}
+
+.funfact {
+    float: left;
+    display: flex;
+    flex-direction: column;
+    background-color: #0241a8;
+    color: white;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    padding: 5px 10px;
+}
+
+.funfact-title {
+    font-size: 8pt;
+    text-transform: uppercase;
+    font-family: 'Renogare Soft';
+}
+
+.details h2 {
+    font-size: 30pt;
+}
+
+.details p.bio {
+    margin-bottom: 20px;
+}
+
+.details h2 span {
+    font-size: 50%;
+}
+
+.details h4 {
+    margin-top: 10px;
+}
+
+.candidate-platform div {
+    display: inline-block;
+    background-color: #eeeeee;
+    margin-top: 10px;
+    padding: 20px;
+}
