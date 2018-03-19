@@ -45,10 +45,12 @@ function closeDetails(shouldAnimate) {
 
     details.classList.remove("details-open");
     container.classList.remove("has-open-details");
+    document.body.classList.remove("has-open-details");
     
     document.querySelectorAll(".candidates-listing a.open").forEach(function (elm) {
         elm.classList.remove("open");
     });
+
 }
 
 function openDetails(candidate) {
@@ -71,6 +73,7 @@ function openDetails(candidate) {
     document.querySelector('a[href=\'#' + candidate + '\']').classList.add("open");
     details.className += " details-open";
     container.classList.add("has-open-details");
+    document.body.classList.add("has-open-details");
     
     if (shouldAnimate) {
         var animTarget = details.querySelector('.artsy-shadow');
@@ -140,6 +143,13 @@ document.querySelectorAll('a[href^=\'#\']').forEach(function (link) {
         event.preventDefault();
     });
 });
+
+document.querySelectorAll('.details-close').forEach(function (closeBtn) {
+    closeBtn.addEventListener('click', function (event) {
+        closeDetails(true);
+        history.replaceState(null,null,".");
+    });
+})
 
 if (document.location.hash) {
     handleHash(null, document.location.hash.substring(1), window.scrollY == 0);

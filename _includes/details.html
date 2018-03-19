@@ -2,7 +2,11 @@
     <div class="details-inner">
         <div class="artsy-shadow">
             <div>
-                <!--<h2>{{ include.candidate.name }} <span>{{include.candidate.position}}</span></h2>-->
+                <div class="details-close" aria-label="close"><i class="fas fa-times"></i></div>
+                <div class="details-id">
+                    <h2>{{ include.candidate.name }}</h2>
+                    <h3>{{include.candidate.position}}</h3>
+                </div>
                 <h4>About me</h4>
                 <div class="funfacts">
                     {% include funfact.html name="Birthplace" content=include.candidate.birthplace %}

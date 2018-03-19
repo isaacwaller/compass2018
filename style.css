@@ -936,8 +936,20 @@ footer {
     }
 }
 
-/* Responsive details */
+.details-id {
+    display: none;
+}
+
+/* Mobile details */
 @media (max-width: 700px) {
+    body.has-open-details {
+        overflow: hidden;
+    }
+
+    .details-id {
+        display: block;
+    }
+
     .details-open {
         position: fixed;
         top: 0;
@@ -952,7 +964,7 @@ footer {
 
     .details-open > div {
         margin-top: 30px;
-        margin-right: 0;
+        padding-right: 0;
         padding-top: 30px;
     }
 }
@@ -1005,15 +1017,11 @@ footer {
 }
 
 .details h2 {
-    font-size: 30pt;
+    font-size: 20pt;
 }
 
 .details p.bio {
     margin-bottom: 20px;
-}
-
-.details h2 span {
-    font-size: 50%;
 }
 
 .details h4 {
@@ -1025,4 +1033,12 @@ footer {
     background-color: #eeeeee;
     margin-top: 10px;
     padding: 20px;
+}
+
+.details-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 20px;
+    cursor: pointer;
 }
