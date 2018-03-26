@@ -126,11 +126,21 @@ function openTab(isDirectors) {
     closeDetails(false);
 }
 
+function showVideo() {
+    var video = document.querySelector(".video-popup");
+    video.style.display = 'block';
+} 
+
+function hideVideo() {
+    var video = document.querySelector(".video-popup");
+    video.style.display = 'none';
+}
+
 function handleHash(link, hash, shouldScroll) {
     history.replaceState(null,null,'#' + hash);
 
     if (hash == "video") {
-        //alert("this will show the video once it is done");  
+        showVideo();
         return;
     }
     
@@ -144,11 +154,17 @@ function handleHash(link, hash, shouldScroll) {
         return;
     }
 
+    hideVideo();
+    var anchor = document.querySelector('a[name=\'' + hash + '\']');
+    if (!anchor) {
+        return;
+    }
+
     // just scroll to anchor
     if (!shouldScroll) {
         return;
     }
-    var anchor = Math.max(0, document.querySelector('a[name=\'' + hash + '\']').offsetTop - 50); 
+    var anchor = Math.max(0, anchor.offsetTop - 50); 
     window.scroll({top: anchor, left: 0, behavior: 'smooth' });
 }
 

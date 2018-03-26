@@ -1,6 +1,12 @@
 ---
 layout: default
 ---
+<div class="video-popup">
+    <div class="inner">
+        <a class="close" aria-label="close" href="#"><i class="fas fa-times"></i></a>
+        <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fuoftcompass%2Fvideos%2F616584208686280%2F&show_text=0&width=560" width="560" height="315" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allowFullScreen="true"></iframe>
+    </div>
+</div>
 <div class="hero">
     <div class="hero-bg"></div>
     <div class="hero-container">
@@ -11,8 +17,7 @@ layout: default
         <div class="hero-tiles">
             <a class="tile tile-video artsy-shadow" href="#video">
                 <div class="video-container"><video src="/placeholder-video-1.mp4" autoplay muted loop></video></div>
-                <!--<div class="video-button"><div class="play-icon"><i class="fas fa-play"></i></div>Watch the video</div>-->
-                <div class="video-coming-soon">(video coming soon!)</div>
+                <div class="video-button"><div class="play-icon"><i class="fas fa-play"></i></div>Watch the video</div>
             </a>
             <div class="social mobile-social">
                 {% include social.html %}
@@ -24,6 +29,8 @@ layout: default
         </div>
     </div>
 </div>
+
+<a href="https://utsu.simplyvoting.com" target="_blank" class="votenow">Vote now<i class="fas fa-chevron-right"></i></a>
 
 <div class="platform section">
     <a name="platform"></a>
@@ -54,9 +61,6 @@ layout: default
             
             
             <p style="text-align: right;"><a href="/platform.pdf" target="_blank" class="platform-btn">Read the full platform<i class="fas fa-chevron-right"></i></a></p>
-            <!--
-            <p style="text-align: right;"><span class="platform-btn no-platform">Full platform coming today!</span></p>
-            -->
         </div>
     </div>
 </div>
